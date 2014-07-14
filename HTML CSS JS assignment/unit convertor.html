@@ -1,0 +1,30 @@
+<html>
+
+<head>
+	<title> UNIT CONVERTOR </title>
+	<link rel="stylesheet" type="text/css" href="style.css">
+	
+</head>
+
+<body>
+	<script type="text/javascript" src="script.js">
+	</script>
+	<h1> UNIT CONEVERTOR</h1>
+
+	<!--<div id="ttitle"><center><font face="Palatino Linotype" color="black" size="6"> UNIT CONVERTER </center></div>-->
+	<div id="text">		
+		<select id="select" onchange="select()">
+			<option value=1>Length</option>
+			<option value=2>Mass</option>
+			<option value=3>Temperature</option>
+		</select>
+	</div><br /><br />
+	<div id="left">
+		<input type="text" id="firstValue" placeholder="KM" onKeyUp="convert1()"/><br /><br />
+	</div>
+	<div id="right">
+		<input type="text" id="secondValue" placeholder="MILES" onKeyUp="convert2()"/><br /><br />
+	</div>
+	
+</body>
+</html>

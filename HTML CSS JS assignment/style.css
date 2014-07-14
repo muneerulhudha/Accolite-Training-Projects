@@ -1,0 +1,89 @@
+#left
+{
+	width: 60px;
+	height: 50px;
+	float: left;
+}
+
+#right
+{
+	width: 60px;
+	height: 50px;
+	float: right;
+}
+
+
+h1
+{
+	margin-left: 110px;
+	text-align: center;
+	color: #ffffff;
+}
+
+body
+{
+	position:absolute;
+ 	width:300px;
+	height:200px;
+	z-index:15;
+	top:50%;
+	left:40%;
+	margin:-100px 0 0 -150px;
+	background:#222222;
+}
+
+/*CSS for dropdown box*/
+select
+{
+	width: 440px;
+	height: 29px;
+	border-radius: 3px;
+	border: 1px solid #CCC;
+	font-weight: 200;
+	font-size: 15px;
+	font-family: Verdana;
+	box-shadow: 1px 1px 5px #CCC;
+	margin-right: auto; 
+	margin-left: auto;
+	text-align: center;
+}
+select: hover
+{
+	width: 200px;
+	height: 29px;
+	border-radius: 3px;
+	border: 1px solid #CCC;
+	font-weight: 200;
+	font-size: 15px;
+	font-family: Verdana;
+	box-shadow: 1px 1px 5px #CCC;
+}
+
+/*CSS for input textbox and password*/
+
+input[type='text']
+{
+	width: 200px;
+	height: 29px;
+	border-radius: 3px;
+	border: 1px solid #ffffff;
+	padding: 8px;
+	font-weight: 200;
+	font-size: 15px;
+	font-family: Verdana;
+	box-shadow: 1px 1px 5px #ffffff;
+}
+
+input[type='text']:hover
+{
+	width: 200px;
+	height: 29px;
+	border-radius: 3px;
+	border: 1px solid #000000;
+	padding: 8px;
+	font-weight: 200;
+	font-size: 15px;
+	font-family: Verdana;
+	box-shadow: 1px 1px 5px #000000;
+}
+
