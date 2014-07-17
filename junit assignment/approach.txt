@@ -1,0 +1,7 @@
+Execution Instructions:
+
+Build the maven package and it will run the test cases for all classes and generate the jacoco report. The generated jacoco report is included in the result folder.
+
+Approach:
+
+Test cases were written based on the module description provided for each module at the org.apache.commons website. The project is then built and based on the jacoco report generated, test cases were written for modules and lines that were not covered. Jacoco gives a clear idea about what lines and method have been covered and what part of the method has been covered which was useful for acheiving more code coverage. 
