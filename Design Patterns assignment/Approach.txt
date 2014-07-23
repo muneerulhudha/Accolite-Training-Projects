@@ -1,0 +1,33 @@
+Patterns used
+*Singleton
+*Factory using Reflections
+*Observer
+*Dependency Injection
+*Strategy pattern using enums and interfaces(not implemented)
+*Using interfaces and abstract classes wherever necessary
+
+1.Singleton
+BaseCamp is a singleton class as there is only one BaseCamp for a player
+
+2.Using interfaces and abstract classes wherever necessary
+Soldier is the abstract base class and Ground,Water and Air soldiers are subclasses that implement
+the functionalities.
+
+3.Factory using Reflections
+Subclass Soldier objects are created using Factory Method SoldierFactory.getSoldier
+BaseCamp passes the parameters and type of Soldier but doesn't know how the objects are actually created.
+Using reflections it is possible to do away with the ugly switch block but at the same time instantiate
+the required objects.
+
+4.Observer
+Soldiers are Observers and BaseCamp is the Observable
+Soldiers subscribe to BaseCamp and wait for instructions from the BaseCamp
+
+5.Dependency Injection
+Transport class is used to take the soldier aboard if the ticket is available
+But this creates a dependency betwee Transport class and Soldier class.
+To avoid this Interface IAvailability is used to decouple the two classes.
+
+6.Strategy pattern using enums and interfaces(not implemented)
+To fire weapons (Primary/Secondary) we can use this pattern
+
