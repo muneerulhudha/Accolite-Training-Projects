@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Display Sorted Key Value Pair</title>
+<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+
+<form method = "get" action = "http://localhost/KeyValueStore/KeyValueServlet">
+
+<input type = "hidden" name = "query" value = "3"></input>
+Sort by: <br /><br />
+
+<input type = "radio" name = "sortby" value = "item_key"> Key <br />
+<input type = "radio" name = "sortby" value = "item_value"> Value 
+ 
+<br /> <br /> 
+
+<input type="submit" value= "Submit">
+
+</form>
+
+<br /> <br />
+
+<a href="index.html"> Go home</a>
+
+</body>
+</html>
