@@ -1,6 +1,7 @@
 <div class="list-group" ng-controller="userhomeController">
    
-  <div class="container">
+  <div class="well"> 
+    <div class="container">
       <div class="row">
         <div class="col-md-3">
             Any : <input ng-model="search.$" class="form-control input-md">
@@ -16,6 +17,8 @@
             </select>
         </div>
       </div>
+    </div> 
+  </div> 
 
   <div class="well" ng-repeat="response in OfferResponse1 | filter:search:strict">
     <div class="container">

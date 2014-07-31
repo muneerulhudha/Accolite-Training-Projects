@@ -1,0 +1,1 @@
+Create database tables as per the schema in the DDL attached deploy the war file in a Tomcat server to verify the project.

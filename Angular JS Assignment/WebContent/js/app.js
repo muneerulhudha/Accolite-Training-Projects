@@ -1,8 +1,19 @@
-var croupOnApp = angular.module('croupOnApp', ['ui.router','ui.bootstrap']);
+var croupOnApp = angular.module('croupOnApp', ['ui.router','ui.bootstrap','reCAPTCHA']);
 var x;
 var y;
 var count=0;
 var cart =[];
+
+  croupOnApp.config(function (reCAPTCHAProvider) {
+
+     // required, please use your own key :)
+     reCAPTCHAProvider.setPublicKey('6Lcsx_cSAAAAAKEa3F1VC3VJGKy4gwdtbmN9-pQT');
+
+     // optional
+     reCAPTCHAProvider.setOptions({
+         theme: 'clean'
+     });
+  });
 
   croupOnApp.config(function($stateProvider, $urlRouterProvider) {
 
@@ -203,7 +214,7 @@ var cart =[];
     $scope.signin=function()
     {
       $scope.login.hiddenValue='0';
-      alert("Login");
+      //alert("Login");
       $http({
             method:'POST',
             url:'http://localhost:8082/GroupOnAngularJSAssignment/GroupOnServlets',
@@ -211,7 +222,7 @@ var cart =[];
           }).success(function(data)
           {
             $scope.status=data.result;
-            alert(data);
+            //alert(data);
             if(angular.equals(data.result,"true"))
             {
               x=$scope.login.userName;
@@ -256,7 +267,7 @@ var cart =[];
       {
         
           $scope.signup.hiddenValue='1';
-          alert("Register "+ $scope.signup.userType); 
+          //alert("Register "+ $scope.signup.userType); 
           $http({
             method:'POST',
             url:'http://localhost:8082/GroupOnAngularJSAssignment/GroupOnServlets',
@@ -264,7 +275,7 @@ var cart =[];
           }).success(function(data)
           {
             $scope.status=data;
-            alert(data);
+            //alert(data);
             console.log('Data received');
             $state.go('login');
         
@@ -276,7 +287,7 @@ var cart =[];
       }
       else
       { 
-        alert("Password does not match");
+        //alert("Password does not match");
       }
     };
 
@@ -339,7 +350,7 @@ var cart =[];
           {
             $scope.status=data;
             $scope.offer={};
-            alert(data);
+            //alert(data);
             $state.go('corporatehome.viewoffer');
         
           }).error(function(data){
