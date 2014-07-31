@@ -1,0 +1,15 @@
+<div ng-controller="modalController">
+
+	<div class="modal-header">
+	    <h3 class="modal-title">Report</h3>
+	</div>
+	<div class="modal-body"> 
+		<div ng-repeat="r in result">
+			{{ r.UserName }}
+			{{ r.Participants}}
+			{{ r.Date }}
+		</div>
+		Remaining Coupons: {{ remaining }}
+	</div> 
+
+</div>

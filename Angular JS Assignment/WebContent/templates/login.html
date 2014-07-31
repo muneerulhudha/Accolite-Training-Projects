@@ -1,0 +1,41 @@
+<div class="page-header"><h1>Login</h1></div>
+
+<form class="form-horizontal" name="loginForm" ng-controller="loginController">
+	<fieldset>
+
+	<!-- Text input-->
+	<div class="form-group">
+	  <label class="col-md-4 control-label" for="username">Username</label>  
+	  <div class="col-md-4">
+	  <input id="username" name="username" type="text" placeholder="Enter username" ng-model="login.userName" class="form-control input-md" required>
+	    
+	  </div>
+	</div>
+
+	<!-- Password input-->
+	<div class="form-group" ng-class="{ 'has-error' : loginForm.password.$invalid && !loginForm.password.$pristine }">
+	  <label class="col-md-4 control-label" for="password">Password</label>
+	  <div class="col-md-4">
+	    <input id="password" name="password" type="password" placeholder="Enter password" ng-model="login.password" class="form-control input-md" required>
+	    <span class="error" ng-show="boolPass">Password incorrect</span>
+	    
+	  </div>
+	</div>
+
+	<!-- Button -->
+	<div class="form-group">
+	  <label class="col-md-4 control-label" for="submit"></label>
+	  <div class="col-md-4">
+	    <button id="submit" name="submit" class="btn btn-primary" ng-click="signin()">Submit</button>
+	  </div>
+	</div>
+
+	<div class="form-group">
+		<label class="col-md-4 control-label" for="newuser"></label>
+		<div class="col-md-4">
+			New Users <a ui-sref="signup">Register Here</a>!
+		</div>
+	</div>
+
+	</fieldset>
+</form>

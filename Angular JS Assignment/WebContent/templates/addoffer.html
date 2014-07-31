@@ -1,0 +1,100 @@
+<form class="form-horizontal" name="addOfferForm" ng-submit="submitForm(addOfferForm.$valid)" ng-controller="addOfferController">
+<fieldset>
+
+<!-- Form Name -->
+<legend>Add Offer</legend>
+
+<!-- Text input-->
+<div class="form-group" ng-class="{ 'has-error' : addOfferForm.offername.$invalid && !addOfferForm.offername.$pristine }">
+  <label class="col-md-4 control-label" for="offername">Offer Name</label>  
+  <div class="col-md-4">
+  <input id="offername" name="offername" ng-model="offer.offerName" type="text" placeholder="Choose a name for what you are offering" class="form-control input-md" required>
+  <span class="help-block">Your offer name is what get displayed as the heading. Choose an attractive name.</span>  
+  </div>
+</div>
+
+<!-- Textarea -->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="description">Description</label>
+  <div class="col-md-4">                     
+    <textarea class="form-control" id="description" ng-model="offer.offerDescription" name="description">Describe about your offer in detail.</textarea>
+  </div>
+</div>
+
+<!-- Search input-->
+<div class="form-group" ng-class="{ 'has-error' : addOfferForm.noavailable.$invalid && !addOfferForm.noavailable.$pristine }">
+  <label class="col-md-4 control-label" for="noavailable">No of participants</label>
+  <div class="col-md-4">
+    <input id="noavailable" name="noavailable" type="search" ng-model="offer.offerCount" placeholder="Enter a number" class="form-control input-md" required ng-pattern="/^\d+$/">
+    <p class="help-block">This will be the maximum number of people that can signup for this offer.</p>
+  </div>
+</div>
+
+
+<div class="form-group" ng-class="{ 'has-error' : addOfferForm.startdate.$invalid && !addOfferForm.startdate.$pristine }">
+  <label class="col-md-4 control-label" for="noavailable">Start Date</label>
+  <div class="col-md-4">
+    <input id="startdate" name="startdate" type="date" ng-model="offer.offerStartDate" class="form-control input-md" required ng-change="checkDate()">
+    <p class="help-block">Select the offer starting date</p>
+    <!--span  ng-show="(offer.offerStartDate < dateFunction())">Date should alteast start from</span>-->
+     <span class="error" ng-show="boolFlag">Start Date Must be atleast today</span>
+
+
+  </div>
+</div>
+
+<div class="form-group" ng-class="{ 'has-error' : addOfferForm.enddate.$invalid && !addOfferForm.enddate.$pristine }">
+  <label class="col-md-4 control-label" for="noavailable">End Date</label>
+  <div class="col-md-4">
+    <input id="enddate" name="enddate" type="date" ng-model="offer.offerEndDate" class="form-control input-md" required 
+    ng-change="checkEndDate()">
+    <p class="help-block">Select the offer ending date</p>
+    <span class="error" ng-show="boolFlag1">End Date Must be atleast today</span>
+    <span class="error" ng-show="boolEnd">End Date Must be greater than start date</span>
+  </div>
+</div>
+
+<!-- Select Basic -->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="category">Offer Category</label>
+  <div class="col-md-4">
+    <select id="category" name="category" ng-model="offer.offerCategory" class="form-control">
+      <option value="travel">Travel</option>
+      <option value="restaurant">Restaurant</option>
+      <option value="dining">Dining</option>
+      <option value="purchase">Item Purchase</option>
+    </select>
+  </div>
+</div>
+
+<!-- Prepended text-->
+<div class="form-group" ng-class="{ 'has-error' : addOfferForm.price.$invalid && !addOfferForm.price.$pristine }">
+  <label class="col-md-4 control-label" for="price">Price</label>
+  <div class="col-md-4">
+    <div class="input-group">
+      <span class="input-group-addon">$</span>
+      <input id="price" name="price" ng-model="offer.offerPrice" class="form-control" placeholder="Enter amount" type="number" required />
+    </div>
+    <p class="help-block">Choose wisely</p>
+  </div>
+</div>
+
+<!-- Text input-->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="imageurl">Upload image</label>  
+  <div class="col-md-4">
+  <input id="imageurl" name="imageurl" type="text" ng-model="offer.offerURL" placeholder="Enter a image url" class="form-control input-md" required>
+    
+  </div>
+</div>
+
+<!-- Button -->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="singlebutton"></label>
+  <div class="col-md-4">
+    <button id="singlebutton" name="singlebutton" ng-disabled="addOfferForm.$invalid" ng-click="addOffer()" class="btn btn-primary">Add Offer</button>
+  </div>
+</div>
+
+</fieldset>
+</form>

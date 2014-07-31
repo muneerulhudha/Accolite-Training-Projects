@@ -1,0 +1,110 @@
+<div class="page-header"><h1>Sign Up</h1></div>
+
+<form class="form-horizontal" ng-submit="submitForm(signupform.$valid)" name="signupform" ng-controller="signupController" novalidate>
+<fieldset>
+
+<!-- Text input-->
+<div class="form-group" ng-class="{ 'has-error' : signupform.username.$invalid && !signupform.username.$pristine }">
+  <label class="col-md-4 control-label" for="username">User Name</label>  
+  <div class="col-md-4">
+    <div class="input-group">  
+      <span class="input-group-addon">@</span>
+      <input id="username" name="username" type="text" placeholder="john.doe" class="form-control input-md" ng-model="signup.username" ng-minlength="3" required>
+    </div>  
+  </div>
+</div>
+
+<!-- Text input-->
+<div class="form-group" ng-class="{ 'has-error' : signupform.email.$invalid && !signupform.email.$pristine }">
+  <label class="col-md-4 control-label" for="email">E-mail ID</label>  
+  <div class="col-md-4">
+  <input id="email" name="email" type="email" placeholder="john.doe@foo.com" class="form-control input-md" ng-model="signup.email" required ng-unique>
+  <!--p ng-show="signupform.email.$invalid && !signupform.email.$pristine" class="help-block">Enter a valid email.</p>-->
+  <span class="error" data-ng-show="signupform.email.$error.unique">Email Already Exists</span>
+  
+  </div>
+</div>
+
+<!-- Password input-->
+<div class="form-group" ng-class="{ 'has-error' : signupform.password.$invalid && !signupform.password.$pristine }">
+  <label class="col-md-4 control-label" for="password">Password</label>
+  <div class="col-md-4">
+    <input id="password" ng-model="signup.password" type="password" placeholder="Choose a password" ng-minlength="5" class="form-control input-md" ng-change="checkPassword(signup.password, signup.rpassword );" required>
+    <span  ng-show="!signup.password.length">Password is too short!!</span>
+
+  </div>
+</div>
+
+<!-- Password input-->
+<div class="form-group" ng-class="{ 'has-error' : signupform.rpassword.$invalid && !signupform.rpassword.$pristine }">
+  <label class="col-md-4 control-label" for="">Repeat Password</label>
+  <div class="col-md-4">
+    <input id="" ng-model="signup.rpassword" type="password" placeholder="Retype your password" class="form-control input-md" ng-change="checkPassword(signup.password, signup.rpassword );" required>
+    <span class="error" ng-show="boolFlag">Password Mismatch</span>
+    
+    
+  </div>
+</div>
+
+<!-- Text input-->
+<div class="form-group" ng-class="{ 'has-error' : signupform.firstname.$invalid && !signupform.firstname.$pristine }">
+  <label class="col-md-4 control-label" for="firstname">First Name</label>  
+  <div class="col-md-4">
+  <input id="firstname" ng-model="signup.firstname" type="text" placeholder="John" class="form-control input-md" required>
+  <p ng-show="signupform.firstname.$invalid && !signupform.firstname.$pristine" class="help-block">Your name is required.</p>  
+  </div>
+</div>
+
+<!-- Text input-->
+<div class="form-group" ng-class="{ 'has-error' : signupform.lastname.$invalid && !signupform.lastname.$pristine }">
+  <label class="col-md-4 control-label" for="lastname">Last Name</label>  
+  <div class="col-md-4">
+  <input id="lastname" ng-model="signup.lastname" type="text" placeholder="Doe" class="form-control input-md" required>
+    
+  </div>
+</div>
+
+<!-- Multiple Radios (inline) -->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="sex">Gender</label>
+  <div class="col-md-4"> 
+    <label class="radio-inline" for="sex-0">
+      <input type="radio" name="sex" id="sex-0" value="male" ng-model="signup.sex" checked="checked">
+      Male
+    </label> 
+    <label class="radio-inline" for="sex-1">
+      <input type="radio" name="sex" id="sex-1" value="female" ng-model="signup.sex">
+      Female
+    </label>
+  </div>
+</div>
+
+<!-- Multiple Radios -->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="user">Type of user</label>
+  <div class="col-md-4">
+  <div class="radio">
+    <label for="user-0">
+      <input type="radio" name="user" id="user-0" value="corporate" checked="checked" ng-model="signup.userType">
+      Corporate
+    </label>
+  </div>
+  <div class="radio">
+    <label for="user-1">
+      <input type="radio" name="user" id="user-1" value="user" ng-model="signup.userType">
+      User
+    </label>
+  </div>
+  </div>
+</div>
+
+<!-- Button -->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="signup"></label>
+  <div class="col-md-4">
+    <button id="signup" name="signup" class="btn btn-primary" ng-disabled="signupform.$invalid" ng-click="register()">Sign Up</button>
+  </div>
+</div>
+
+</fieldset>
+</form>

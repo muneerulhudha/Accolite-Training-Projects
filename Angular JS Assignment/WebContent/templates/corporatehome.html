@@ -1,0 +1,13 @@
+<div ng-controller="corporateController" class="tabbable">
+	<ul class="nav nav-pills">
+	  <li ng-class="{active: isActive('/corporatehome/corphome')}"><a ui-sref=".corphome">Home</a></li>
+	  <li ng-class="{active: isActive('/corporatehome/addoffer')}"><a ui-sref=".addoffer">Add Offer</a></li>
+	  <li ng-class="{active: isActive('/corporatehome/viewoffer')}"><a ui-sref=".viewoffer">View Offers</a></li>
+	</ul>
+</div>
+
+<div class="main">
+
+	<div ui-view></div>
+
+</div>

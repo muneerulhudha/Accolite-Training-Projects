@@ -1,0 +1,43 @@
+<div class="list-group" ng-controller="userhomeController">
+   
+  <div class="container">
+      <div class="row">
+        <div class="col-md-3">
+            Any : <input ng-model="search.$" class="form-control input-md">
+        </div>
+        <div class="col-md-3">
+          Category : 
+            <select class="form-control" ng-model="search.OfferCategory">
+                <option value=""></option>
+                <option value="Restaurant">Restaurant</option>
+                <option value="Travel">Travel</option>
+                <option value="Dining">Dining</option>
+                <option value="Purchase">Purchase</option>
+            </select>
+        </div>
+      </div>
+
+  <div class="well" ng-repeat="response in OfferResponse1 | filter:search:strict">
+    <div class="container">
+      <div class="row">
+        <div class="media col-md-3">
+                <figure class="pull-left">
+                    <img class="media-object img-rounded img-responsive"  src="http://placehold.it/300x180" alt="placehold.it/300x180" >
+                </figure>
+            </div>
+          <div class="col-md-6">
+              <h1>{{ response.OfferName }}</h1>
+          <!--<span class="badge">New</span>-->
+          <p>{{ response.OfferDesc }}<p>
+            <p>{{response.StartDate}} To {{response.EndDate}}</p>
+          <h2>{{ response.Price | currency }}</h2>
+          <h5>Slots available {{response.Participants}}</h5>
+        </div>
+        <div class="col-md-3">
+            <br /> <br />
+            <button type="button" class="btn btn-primary btn-lg btn-block" ng-click="addToCart(response.OfferName,response.OfferDesc,response.Price,response.Participants,response.StartDate,response.EndDate)"> Add to Cart </button>
+        <div>
+      </div>
+    </div>
+  </div>
+</div>
