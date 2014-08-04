@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Slide Show Of images</title>
+<h1><center>Slide Show<center></h1>
+</head>
+<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" />
+<link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.0/css/font-awesome.css" />
+<script type = "text/javascript">
+var count = 0;
+var maxcount;
+var request;
+if (window.XMLHttpRequest)
+  {// code for IE7+, Firefox, Chrome, Opera, Safari
+  request = new XMLHttpRequest();
+  }
+else
+  {// code for IE6, IE5
+  request = new ActiveXObject("Microsoft.XMLHTTP");
+  }
+
+var data = new Array();
+var go = function()
+{
+	if(request.readyState == 4 && request.status == 200)
+	{
+
+		data = JSON.parse(request.responseText);
+		//alert(request.responseText);
+		maxcount = data.length;
+		//alert("Length "+maxcount);
+		/*alert(data[0].firstName);*/
+		document.getElementById("loadimage").src = data[0].url;
+		document.getElementById("iname").innerHTML = data[count].imageName;
+		document.getElementById("idesc").innerHTML = data[count].imageDescription;
+		document.getElementById("isource").innerHTML = data[count].Reference_web_page;
+
+
+	}
+}
+
+request.open("GET","images.json",true);
+request.send();
+request.onreadystatechange = go;
+function next()
+{
+	/*alert("inside next");*/
+	count = (count +1 )% maxcount;
+	/*alert("count "+count);*/
+	document.getElementById("loadimage").src = data[count].url;
+	document.getElementById("iname").innerHTML = data[count].imageName;
+	document.getElementById("idesc").innerHTML = data[count].imageDescription;
+	document.getElementById("isource").innerHTML = data[count].Reference_web_page;
+
+}
+function previous()
+{
+	/*alert("inside previous");*/
+	if(count == 0)
+		count = maxcount-1;
+	else
+	{
+		count = (count - 1 )% maxcount;
+	}
+	
+	/*alert("count "+count);*/
+	document.getElementById("loadimage").src = data[count].url;
+	document.getElementById("iname").innerHTML = data[count].imageName;
+	document.getElementById("idesc").innerHTML = data[count].imageDescription;
+	document.getElementById("isource").innerHTML = data[count].Reference_web_page;
+
+}
+
+</script>
+<body>
+	
+	<!-- <div id= "images">
+	</div> -->
+	<center>
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12">
+				<image id= "loadimage" />
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-12">	
+				<div id= "iname">
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-12">
+				<div id= "idesc">
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-12">
+				<b><div id= "isource">
+				</div></b>
+			</div>
+		</div>
+		<div class ="row">
+			<div class="col-md-12">
+				<button id = "previous" class="btn btn-primary" onclick = "previous()">Previous</button>
+				<button id = "next" class="btn btn-primary" onclick = "next()">Next</button>
+			</div>
+		</div>
+	</div>
+</center>
+</body>
+</html>
