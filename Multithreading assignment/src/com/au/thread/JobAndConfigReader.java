@@ -139,7 +139,7 @@ public class JobAndConfigReader {
 			@Override
 			public void run() {
 				System.out.println("Entering");
-				new JobAndConfigReader(10);
+				new JobAndConfigReader(300);
 
 			}
 		});
