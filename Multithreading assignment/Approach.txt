@@ -1,0 +1,13 @@
+Approach:
+
+Location of config file: E:/threading_test/configUtils.txt
+
+Location of cron: E:/threading_test/cron.txt
+
+-- Create a project as per the package structure in git repo. 
+
+-- Run the JobAndConfigReader file.
+
+-- Three threads are implemented to meet the requirement.
+
+-- The file permissions can be changed only if the files are created by the same program.
