@@ -1,0 +1,14 @@
+Guidelines to run the project:
+
+-- Create a maven project archetype webapp in Eclipse.
+
+-- Add the pom.xml file.
+
+-- Add the source files in the respective folder. Make sure the package is generated.
+
+-- Build the project and deploy the war the file in Tomcat server.
+
+
+The project can also be executed using command line option mvn Tomcat7:run if the Tomcat plugin is installed.
+
+If there is a "No compiler found exception while using maven build", just delete the pom and create it again. That will fix it.

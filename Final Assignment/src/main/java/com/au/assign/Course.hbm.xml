@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.au.assign">
+	<class name="Course" table="COURSES">
+		<id name="courseName" column="Name" type="string"></id>
+
+		<property name="courseDescription" column="Descript" type="string" />
+		<property name="duration" column="Duration" type="int" />
+		<property name="admissionProcess" column="AdmissionProcess"
+			type="string" />
+		<property name="eligibilityCriteria" column="Eligibility"
+			type="float" />
+		<many-to-one name="title" class="Institution" fetch="select">
+			<column name="Title" not-null="true" />
+		</many-to-one>
+	</class>
+</hibernate-mapping>
